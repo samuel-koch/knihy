@@ -9,7 +9,7 @@ def pridat_knihu(knihy):
 
 # najdi knihu
 def najdi_knihu(knihy):
-    nazev = input("Zadej nazev hledane knihy: ")
+    nazev = input("Zadej název hledané knihy: ")
     if nazev in knihy:
         print(f"Kniha {nazev} je v knihovně. Autor: {knihy[nazev]["autor"]}, Rok: {knihy[nazev]["rok"]}")
     else:
@@ -22,6 +22,17 @@ def najdi_knihu(knihy):
 # hlavni program
 def hlavni_program():
     knihy = {}
-    pridat_knihu(knihy)
+    while True:
+        print("\nVyberte akci: ")
+        print("1. Přidat knihu")
+        print("2. Najít knihu")
+        volba = input("Zadejte číslo akce: ")
+        if volba == "1":
+            pridat_knihu(knihy)
+        elif volba == "2":
+            najdi_knihu(knihy)
+        else:
+            print("Konec programu.")
+            exit()
 
 hlavni_program()
